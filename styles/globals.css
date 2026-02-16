@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/* ─── Custom Theme ─── */
+@theme inline {
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-cyan: #00ffff;
+  --color-cyan-dim: #00cccc;
+  --color-gray-900: #0a0a0a;
+  --color-gray-800: #1a1a1a;
+  --color-gray-700: #2a2a2a;
+  --color-gray-400: #666666;
+  --color-gray-300: #999999;
+  --color-gray-100: #e5e5e5;
+
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+}
+
+/* ─── Base ─── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-mono);
+  scroll-behavior: auto; /* Lenis handles smooth scrolling */
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-cyan);
+  color: var(--color-black);
+}
+
+/* ─── Grid Overlay (debug) ─── */
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1px;
+  padding: 0 2rem;
+  opacity: 0.04;
+}
+
+.grid-overlay > div {
+  border-left: 1px solid var(--color-cyan);
+  border-right: 1px solid var(--color-cyan);
+  height: 100%;
+}
+
+/* ─── Terminal cursor blink ─── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ─── Scanline effect ─── */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-cyan);
+  opacity: 0.03;
+  z-index: 9998;
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+}
+
+/* ─── Exposed border utility ─── */
+.border-exposed {
+  border: 1px solid var(--color-gray-700);
+}
+
+/* ─── Mono link style ─── */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-700);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cyan);
+}
