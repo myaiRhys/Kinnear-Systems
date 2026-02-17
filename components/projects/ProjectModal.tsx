@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Project } from "./projectsData";
 
@@ -10,21 +10,49 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
+
+      // Focus trap: keep Tab cycling inside modal
+      if (e.key === "Tab" && modalRef.current) {
+        const focusable = modalRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     },
     [onClose]
   );
 
   useEffect(() => {
     if (project) {
+      previousFocusRef.current = document.activeElement as HTMLElement;
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
+      // Move focus into modal after animation settles
+      requestAnimationFrame(() => {
+        const firstButton = modalRef.current?.querySelector<HTMLElement>("button");
+        firstButton?.focus();
+      });
     }
     return () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
+      // Restore focus to the element that opened the modal
+      previousFocusRef.current?.focus();
     };
   }, [project, handleKeyDown]);
 
@@ -49,6 +77,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           {/* Modal content */}
           <motion.div
+            ref={modalRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
             className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto
               bg-gray-900 border border-gray-700 my-[5vh] mx-4
               scrollbar-thin"
@@ -96,6 +128,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   {project.subtitle}
                 </motion.div>
                 <motion.h2
+                  id="modal-title"
                   layoutId={`project-title-${project.id}`}
                   className="text-3xl sm:text-4xl font-bold text-white font-mono tracking-tight mb-4"
                 >

@@ -1,13 +1,28 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Hero from "@/components/hero/Hero";
-import ServicesSection from "@/components/services/ServicesSection";
-import ProjectsShowcase from "@/components/projects/ProjectsShowcase";
-import TechStackVisualization from "@/components/techstack/TechStackVisualization";
-import ContactSection from "@/components/contact/ContactSection";
+
+// Dynamic imports — code-split below-fold heavy components
+const ServicesSection = dynamic(
+  () => import("@/components/services/ServicesSection"),
+  { ssr: true }
+);
+const ProjectsShowcase = dynamic(
+  () => import("@/components/projects/ProjectsShowcase"),
+  { ssr: true }
+);
+const TechStackVisualization = dynamic(
+  () => import("@/components/techstack/TechStackVisualization"),
+  { ssr: true }
+);
+const ContactSection = dynamic(
+  () => import("@/components/contact/ContactSection"),
+  { ssr: true }
+);
 
 gsap.registerPlugin(ScrollTrigger);
 

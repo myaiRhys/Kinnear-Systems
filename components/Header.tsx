@@ -165,7 +165,7 @@ export default function Header() {
         </a>
 
         {/* Navigation */}
-        <nav ref={navRef} className="hidden md:flex items-center gap-8 relative">
+        <nav ref={navRef} aria-label="Main navigation" className="hidden md:flex items-center gap-8 relative">
           {/* Active indicator bar */}
           <div
             ref={indicatorRef}
