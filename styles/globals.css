@@ -147,3 +147,13 @@ a {
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0, 255, 255, 0.1);
 }
+
+/* ─── Tech stack data stream animation ─── */
+@keyframes data-stream {
+  0% { stroke-dashoffset: 24; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-data-stream {
+  animation: data-stream 0.8s linear infinite;
+}

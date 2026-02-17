@@ -3,6 +3,7 @@
 import Hero from "@/components/hero/Hero";
 import ServicesSection from "@/components/services/ServicesSection";
 import ProjectsShowcase from "@/components/projects/ProjectsShowcase";
+import TechStackVisualization from "@/components/techstack/TechStackVisualization";
 
 export default function Home() {
   return (
@@ -36,6 +37,9 @@ export default function Home() {
 
       {/* ─── Projects Showcase ─── */}
       <ProjectsShowcase />
+
+      {/* ─── Tech Stack Visualization ─── */}
+      <TechStackVisualization />
 
       {/* ─── About Snippet ─── */}
       <section className="border-t border-gray-700 px-6 sm:px-12 lg:px-24 py-24">
