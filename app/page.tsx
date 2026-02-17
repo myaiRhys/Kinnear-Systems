@@ -1,6 +1,7 @@
 "use client";
 
 import Hero from "@/components/hero/Hero";
+import ServicesSection from "@/components/services/ServicesSection";
 import ProjectsShowcase from "@/components/projects/ProjectsShowcase";
 
 export default function Home() {
@@ -29,6 +30,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* ─── Services Split-Screen ─── */}
+      <ServicesSection />
 
       {/* ─── Projects Showcase ─── */}
       <ProjectsShowcase />
