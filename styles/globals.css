@@ -157,3 +157,37 @@ a {
 .animate-data-stream {
   animation: data-stream 0.8s linear infinite;
 }
+
+/* ─── Terminal-style form inputs ─── */
+.terminal-input {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--color-gray-700);
+  color: var(--color-white);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  padding: 0.625rem 0.75rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.terminal-input::placeholder {
+  color: var(--color-gray-700);
+}
+
+.terminal-input:focus {
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.1);
+}
+
+.terminal-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Select dropdown styling */
+.terminal-input option {
+  background: var(--color-gray-900);
+  color: var(--color-gray-100);
+  font-family: var(--font-mono);
+}
