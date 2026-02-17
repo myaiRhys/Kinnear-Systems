@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { LayoutGroup } from "framer-motion";
 import { projects } from "./projectsData";
 import type { Project } from "./projectsData";
 import ProjectCard from "./ProjectCard";
@@ -78,25 +79,27 @@ export default function ProjectsShowcase() {
         </p>
       </div>
 
-      {/* Project grid */}
-      <div
-        ref={gridRef}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            onClick={() => setSelectedProject(project)}
-          />
-        ))}
-      </div>
+      {/* Project grid + Modal with shared layout */}
+      <LayoutGroup>
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onClick={() => setSelectedProject(project)}
+            />
+          ))}
+        </div>
 
-      {/* Full-screen modal */}
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+        {/* Full-screen modal */}
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      </LayoutGroup>
     </section>
   );
 }

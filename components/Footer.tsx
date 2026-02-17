@@ -1,21 +1,81 @@
 "use client";
 
+import { useEffect, useRef, useCallback } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLenis } from "./SmoothScroll";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Footer() {
   const year = new Date().getFullYear();
+  const footerRef = useRef<HTMLElement>(null);
+  const lenis = useLenis();
+
+  /* ─── Scroll-triggered entrance ─── */
+  useEffect(() => {
+    const footer = footerRef.current;
+    if (!footer) return;
+
+    const ctx = gsap.context(() => {
+      const columns = footer.querySelectorAll("[data-footer-col]");
+      gsap.from(columns, {
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: footer,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      const bottomBar = footer.querySelector("[data-footer-bottom]");
+      if (bottomBar) {
+        gsap.from(bottomBar, {
+          opacity: 0,
+          duration: 0.6,
+          delay: 0.3,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: footer,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
+        });
+      }
+    }, footer);
+
+    return () => ctx.revert();
+  }, []);
+
+  /* ─── Smooth scroll to section ─── */
+  const scrollToSection = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      e.preventDefault();
+      if (lenis) {
+        lenis.scrollTo(href, { offset: -60, duration: 1.4 });
+      }
+    },
+    [lenis]
+  );
 
   return (
-    <footer className="border-t border-gray-700 bg-black">
+    <footer ref={footerRef} className="border-t border-gray-700 bg-black">
       <div className="px-6 py-8">
         {/* Grid layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-xs uppercase tracking-widest font-mono">
           {/* Column 1 */}
-          <div>
+          <div data-footer-col>
             <h4 className="text-cyan mb-4">{"// Navigation"}</h4>
             <ul className="space-y-2">
               {["About", "Work", "Services", "Contact"].map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
+                    onClick={(e) => scrollToSection(e, `#${item.toLowerCase()}`)}
                     className="text-gray-400 transition-colors duration-200 hover:text-white"
                   >
                     &#8212; {item}
@@ -26,7 +86,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2 */}
-          <div>
+          <div data-footer-col>
             <h4 className="text-cyan mb-4">{"// Connect"}</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
@@ -48,7 +108,7 @@ export default function Footer() {
           </div>
 
           {/* Column 3 */}
-          <div>
+          <div data-footer-col>
             <h4 className="text-cyan mb-4">{"// Status"}</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
@@ -62,7 +122,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-gray-700 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 font-mono uppercase tracking-widest">
+        <div
+          data-footer-bottom
+          className="border-t border-gray-700 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 font-mono uppercase tracking-widest"
+        >
           <span>
             &copy; {year} Kinnear Systems. All rights reserved.
           </span>

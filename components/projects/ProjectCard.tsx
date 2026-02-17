@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { motion } from "framer-motion";
 import type { Project } from "./projectsData";
 
 interface ProjectCardProps {
@@ -44,15 +45,21 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
       {/* Content area */}
       <div className="p-6">
         {/* Title */}
-        <h3 className="text-lg font-bold text-white mb-1 font-mono tracking-tight
-          group-hover:text-cyan transition-colors duration-300">
+        <motion.h3
+          layoutId={`project-title-${project.id}`}
+          className="text-lg font-bold text-white mb-1 font-mono tracking-tight
+            group-hover:text-cyan transition-colors duration-300"
+        >
           {project.title}
-        </h3>
+        </motion.h3>
 
         {/* Subtitle */}
-        <div className="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-mono mb-4">
+        <motion.div
+          layoutId={`project-subtitle-${project.id}`}
+          className="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-mono mb-4"
+        >
           {project.subtitle}
-        </div>
+        </motion.div>
 
         {/* Description */}
         <p className="text-xs text-gray-300 font-mono leading-relaxed mb-6">

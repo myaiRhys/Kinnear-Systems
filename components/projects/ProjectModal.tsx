@@ -89,12 +89,18 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.15, duration: 0.5 }}
               >
-                <div className="text-[10px] uppercase tracking-[0.3em] text-cyan font-mono mb-3">
+                <motion.div
+                  layoutId={`project-subtitle-${project.id}`}
+                  className="text-[10px] uppercase tracking-[0.3em] text-cyan font-mono mb-3"
+                >
                   {project.subtitle}
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white font-mono tracking-tight mb-4">
+                </motion.div>
+                <motion.h2
+                  layoutId={`project-title-${project.id}`}
+                  className="text-3xl sm:text-4xl font-bold text-white font-mono tracking-tight mb-4"
+                >
                   {project.title}
-                </h2>
+                </motion.h2>
                 <p className="text-sm text-gray-300 font-mono leading-relaxed max-w-2xl">
                   {project.description}
                 </p>
