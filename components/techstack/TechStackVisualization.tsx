@@ -203,10 +203,10 @@ export default function TechStackVisualization() {
     <section
       ref={sectionRef}
       id="stack"
-      className="border-t border-gray-700 px-6 sm:px-12 lg:px-24 py-24 relative"
+      className="border-t border-gray-700 px-4 sm:px-12 lg:px-24 py-16 sm:py-24 relative"
     >
       {/* ─── Section Header ─── */}
-      <div ref={headerRef} className="mb-16 max-w-3xl">
+      <div ref={headerRef} className="mb-10 sm:mb-16 max-w-3xl">
         <div className="text-xs uppercase tracking-[0.3em] text-cyan mb-6 font-mono">
           {"// Tech Stack"}
         </div>
@@ -396,7 +396,7 @@ const TechNodeCard = forwardRef<HTMLDivElement, TechNodeCardProps>(
           </div>
 
           {/* Node content */}
-          <div className="px-3 py-3">
+          <div className="px-3 py-3 min-h-[44px]">
             <div className="flex items-center gap-2 mb-1">
               <span
                 className={`text-base transition-colors duration-300 ${
@@ -505,14 +505,14 @@ function ExpandedPanel({
           </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-cyan transition-colors font-mono text-xs px-2 py-1 border border-gray-700 hover:border-cyan/40"
+            className="text-gray-400 hover:text-cyan active:text-cyan transition-colors font-mono text-xs px-3 py-2 min-h-[44px] flex items-center border border-gray-700 hover:border-cyan/40"
           >
             [×] close
           </button>
         </div>
 
         {/* Panel content */}
-        <div className="p-6 font-mono text-sm space-y-4">
+        <div className="p-4 sm:p-6 font-mono text-sm space-y-4">
           <div data-detail-line>
             <span className="text-cyan">$ cat</span>{" "}
             <span className="text-gray-400">{node.id}/README.md</span>

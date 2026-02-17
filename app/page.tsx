@@ -140,23 +140,23 @@ export default function Home() {
       {/* ─── Stats Section ─── */}
       <section
         ref={statsRef}
-        className="border-t border-gray-700 px-6 sm:px-12 lg:px-24 py-16"
+        className="border-t border-gray-700 px-4 sm:px-12 lg:px-24 py-12 sm:py-16"
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-8">
           {[
             { value: "10+", label: "Years Experience" },
             { value: "50+", label: "Projects Delivered" },
             { value: "99.9%", label: "Uptime SLA" },
             { value: "24/7", label: "System Monitoring" },
           ].map((stat) => (
-            <div key={stat.label} data-stat-card className="border-exposed p-6">
+            <div key={stat.label} data-stat-card className="border-exposed p-3 sm:p-6">
               <div
                 data-stat-value
-                className="text-3xl sm:text-4xl font-bold text-cyan mb-2"
+                className="text-2xl sm:text-4xl font-bold text-cyan mb-1 sm:mb-2"
               >
                 {stat.value}
               </div>
-              <div className="text-xs text-gray-400 uppercase tracking-widest font-mono">
+              <div className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider sm:tracking-widest font-mono">
                 {stat.label}
               </div>
             </div>
@@ -180,9 +180,9 @@ export default function Home() {
       <section
         ref={aboutRef}
         id="about"
-        className="border-t border-gray-700 px-6 sm:px-12 lg:px-24 py-24"
+        className="border-t border-gray-700 px-4 sm:px-12 lg:px-24 py-16 sm:py-24"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-6xl">
           <div data-about-left>
             <h2 className="text-xs uppercase tracking-[0.3em] text-cyan mb-6 font-mono">
               {"// About"}

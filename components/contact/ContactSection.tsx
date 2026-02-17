@@ -230,10 +230,10 @@ export default function ContactSection() {
     <section
       ref={sectionRef}
       id="contact"
-      className="border-t border-gray-700 px-6 sm:px-12 lg:px-24 py-24"
+      className="border-t border-gray-700 px-4 sm:px-12 lg:px-24 py-16 sm:py-24"
     >
       {/* ─── Section Header ─── */}
-      <div ref={headerRef} className="mb-16 max-w-3xl">
+      <div ref={headerRef} className="mb-10 sm:mb-16 max-w-3xl">
         <div className="text-xs uppercase tracking-[0.3em] text-cyan mb-6 font-mono">
           {"// Contact"}
         </div>
@@ -404,7 +404,7 @@ export default function ContactSection() {
                   disabled={status === "submitting"}
                   className={`
                     group w-full flex items-center gap-3
-                    border px-6 py-4 font-mono text-sm uppercase tracking-widest
+                    border px-4 sm:px-6 py-4 min-h-[48px] font-mono text-sm uppercase tracking-widest
                     transition-all duration-300
                     ${
                       status === "submitting"
@@ -435,7 +435,7 @@ export default function ContactSection() {
         {/* Sidebar info panel */}
         <div ref={sidebarRef} className="space-y-6">
           {/* Response time */}
-          <div className="border border-gray-700 p-6">
+          <div className="border border-gray-700 p-4 sm:p-6">
             <div className="flex items-center gap-2 mb-4 pb-3 border-b border-gray-700">
               <div className="flex gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-gray-700" />
@@ -463,7 +463,7 @@ export default function ContactSection() {
           </div>
 
           {/* Direct contact */}
-          <div className="border border-gray-700 p-6">
+          <div className="border border-gray-700 p-4 sm:p-6">
             <div className="text-[10px] uppercase tracking-[0.2em] text-gray-700 font-mono mb-4">
               Direct channels
             </div>
@@ -486,7 +486,7 @@ export default function ContactSection() {
           </div>
 
           {/* What happens next */}
-          <div className="border border-gray-700 p-6">
+          <div className="border border-gray-700 p-4 sm:p-6">
             <div className="text-[10px] uppercase tracking-[0.2em] text-gray-700 font-mono mb-4">
               Process
             </div>
@@ -544,7 +544,7 @@ function TerminalField({
       </label>
       {children}
       {error && (
-        <div className="mt-1.5 text-[10px] font-mono text-red-400 flex items-center gap-1.5">
+        <div className="mt-1.5 text-xs sm:text-[10px] font-mono text-red-400 flex items-center gap-1.5">
           <span className="text-red-500">▸</span> {error}
         </div>
       )}
@@ -612,7 +612,7 @@ function SuccessPanel({
         <div data-success-line className="pt-4">
           <button
             onClick={onNewMessage}
-            className="group flex items-center gap-3 border border-gray-700 px-6 py-3 font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:border-cyan hover:bg-cyan/5 hover:text-cyan text-gray-400 cursor-pointer"
+            className="group flex items-center gap-3 border border-gray-700 px-4 sm:px-6 py-3 min-h-[48px] font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:border-cyan hover:bg-cyan/5 hover:text-cyan active:bg-cyan/10 text-gray-400 cursor-pointer"
           >
             <span className="text-cyan">$</span>
             <span className="transition-colors duration-300">new_message</span>

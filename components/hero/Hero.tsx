@@ -127,7 +127,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen min-h-[700px] flex flex-col justify-center overflow-hidden"
+      className="relative h-screen min-h-[600px] sm:min-h-[700px] flex flex-col justify-center overflow-hidden"
     >
       {/* Three.js background */}
       <ThreeScene />
@@ -148,13 +148,13 @@ export default function Hero() {
       {/* Content */}
       <div
         ref={contentRef}
-        className="relative z-10 px-6 sm:px-12 lg:px-24 pt-20"
+        className="relative z-10 px-4 sm:px-12 lg:px-24 pt-16 sm:pt-20"
       >
         <div className="max-w-5xl">
           {/* System status tag */}
           <div
             ref={metaTopRef}
-            className="text-xs uppercase tracking-[0.3em] text-gray-400 font-mono mb-8"
+            className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-gray-400 font-mono mb-4 sm:mb-8"
           >
             <span className="text-cyan">&#9632;</span> System initialized
             &mdash; Ready
@@ -163,7 +163,7 @@ export default function Hero() {
           {/* Terminal typing animation */}
           <div
             ref={terminalRef}
-            className="text-sm sm:text-base font-mono mb-6"
+            className="text-xs sm:text-base font-mono mb-4 sm:mb-6"
           >
             <TerminalTyping text="KINNEAR SYSTEMS" speed={70} startDelay={800} />
           </div>
@@ -171,7 +171,7 @@ export default function Hero() {
           {/* Main headline */}
           <h1
             ref={headlineRef}
-            className="text-5xl sm:text-7xl lg:text-[6.5rem] font-bold leading-[0.92] tracking-tight mb-6"
+            className="text-4xl sm:text-7xl lg:text-[6.5rem] font-bold leading-[0.92] tracking-tight mb-4 sm:mb-6"
           >
             <span className="text-white">KINNEAR</span>
             <br />
@@ -181,7 +181,7 @@ export default function Hero() {
           {/* Subheadline */}
           <p
             ref={subheadlineRef}
-            className="text-lg sm:text-xl lg:text-2xl text-gray-100 font-mono font-semibold tracking-wide mb-4 uppercase"
+            className="text-base sm:text-xl lg:text-2xl text-gray-100 font-mono font-semibold tracking-wide mb-3 sm:mb-4 uppercase"
           >
             Software That Actually Works
           </p>
@@ -189,17 +189,17 @@ export default function Hero() {
           {/* Tagline */}
           <div
             ref={taglineRef}
-            className="text-sm sm:text-base text-gray-400 font-mono mb-12 max-w-2xl"
+            className="text-xs sm:text-base text-gray-400 font-mono mb-8 sm:mb-12 max-w-2xl"
           >
             <span className="text-gray-300">&gt;</span> Building automation
             systems that save Cape Town businesses 500+ hours/year
           </div>
 
           {/* CTAs */}
-          <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4">
+          <div ref={ctaRef} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a
               href="#work"
-              className="group inline-flex items-center justify-center border border-cyan text-cyan px-8 py-3.5 text-xs uppercase tracking-[0.2em] font-mono transition-all duration-300 hover:bg-cyan hover:text-black"
+              className="group inline-flex items-center justify-center border border-cyan text-cyan px-6 sm:px-8 py-3 sm:py-3.5 min-h-[48px] text-xs uppercase tracking-[0.2em] font-mono transition-all duration-300 hover:bg-cyan hover:text-black active:bg-cyan active:text-black"
             >
               <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
                 &rarr;
@@ -208,7 +208,7 @@ export default function Hero() {
             </a>
             <a
               href="#contact"
-              className="group inline-flex items-center justify-center border border-gray-700 text-gray-300 px-8 py-3.5 text-xs uppercase tracking-[0.2em] font-mono transition-all duration-300 hover:border-cyan hover:text-cyan"
+              className="group inline-flex items-center justify-center border border-gray-700 text-gray-300 px-6 sm:px-8 py-3 sm:py-3.5 min-h-[48px] text-xs uppercase tracking-[0.2em] font-mono transition-all duration-300 hover:border-cyan hover:text-cyan active:border-cyan active:text-cyan"
             >
               <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
                 &rarr;
@@ -222,7 +222,7 @@ export default function Hero() {
       {/* Bottom coordinates */}
       <div
         ref={coordsRef}
-        className="absolute bottom-8 left-6 sm:left-12 lg:left-24 text-xs text-gray-700 font-mono uppercase tracking-widest z-10"
+        className="absolute bottom-4 sm:bottom-8 left-4 sm:left-12 lg:left-24 text-[10px] sm:text-xs text-gray-700 font-mono uppercase tracking-widest z-10"
       >
         <span>33.9249&deg; S, 18.4241&deg; E</span>
       </div>
@@ -230,7 +230,7 @@ export default function Hero() {
       {/* Scroll indicator */}
       <div
         ref={scrollIndicatorRef}
-        className="absolute bottom-8 right-6 sm:right-12 lg:right-24 flex flex-col items-center gap-2 z-10"
+        className="absolute bottom-4 sm:bottom-8 right-4 sm:right-12 lg:right-24 hidden sm:flex flex-col items-center gap-2 z-10"
       >
         <span className="text-xs text-gray-700 font-mono uppercase tracking-widest [writing-mode:vertical-lr]">
           Scroll

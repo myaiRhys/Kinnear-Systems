@@ -126,10 +126,10 @@ export default function ServicesSection() {
     <section
       ref={sectionRef}
       id="services"
-      className="border-t border-gray-700 px-6 sm:px-12 lg:px-24 py-24"
+      className="border-t border-gray-700 px-4 sm:px-12 lg:px-24 py-16 sm:py-24"
     >
       {/* Section header */}
-      <div ref={headerRef} className="mb-16 max-w-3xl">
+      <div ref={headerRef} className="mb-10 sm:mb-16 max-w-3xl">
         <div className="text-xs uppercase tracking-[0.3em] text-cyan mb-6 font-mono">
           {"// Services"}
         </div>
@@ -196,7 +196,7 @@ const ServicePanel = forwardRef<HTMLDivElement, ServicePanelProps>(
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         className={`
-          border border-gray-700 p-8 sm:p-10
+          border border-gray-700 p-5 sm:p-8 lg:p-10
           transition-all duration-500 ease-out
           ${side === "left" ? "lg:border-r-0" : ""}
           ${isHovered ? "bg-gray-900/80 border-cyan/40" : ""}
@@ -204,7 +204,7 @@ const ServicePanel = forwardRef<HTMLDivElement, ServicePanelProps>(
         `}
       >
         {/* Terminal window header */}
-        <div className="flex items-center gap-2 mb-8 pb-4 border-b border-gray-700">
+        <div className="flex items-center gap-2 mb-5 sm:mb-8 pb-4 border-b border-gray-700">
           <div className="flex gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-gray-700" />
             <span className="w-2.5 h-2.5 rounded-full bg-gray-700" />
@@ -254,7 +254,7 @@ const ServicePanel = forwardRef<HTMLDivElement, ServicePanelProps>(
             <div
               key={feature}
               className={`
-                flex items-center gap-3 py-2 px-3
+                flex items-center gap-3 py-2.5 px-3 min-h-[44px]
                 border-l-2 transition-all duration-500 font-mono text-sm
                 ${
                   activeFeature === i
@@ -280,10 +280,11 @@ const ServicePanel = forwardRef<HTMLDivElement, ServicePanelProps>(
           href={service.ctaHref}
           className={`
             group flex items-center gap-3
-            border border-gray-700 px-6 py-4
+            border border-gray-700 px-4 sm:px-6 py-4 min-h-[48px]
             font-mono text-sm uppercase tracking-widest
             transition-all duration-300
             hover:border-cyan hover:bg-cyan/5
+            active:bg-cyan/10
             ${isHovered ? "border-cyan/40" : ""}
           `}
         >

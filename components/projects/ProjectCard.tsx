@@ -57,7 +57,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
         {/* Subtitle */}
         <motion.div
           layoutId={`project-subtitle-${project.id}`}
-          className="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-mono mb-4"
+          className="text-[11px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-gray-400 font-mono mb-4"
         >
           {project.subtitle}
         </motion.div>
