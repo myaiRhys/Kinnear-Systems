@@ -1,6 +1,7 @@
 "use client";
 
 import Hero from "@/components/hero/Hero";
+import ProjectsShowcase from "@/components/projects/ProjectsShowcase";
 
 export default function Home() {
   return (
@@ -28,6 +29,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* ─── Projects Showcase ─── */}
+      <ProjectsShowcase />
 
       {/* ─── About Snippet ─── */}
       <section className="border-t border-gray-700 px-6 sm:px-12 lg:px-24 py-24">
