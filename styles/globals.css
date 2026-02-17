@@ -119,3 +119,31 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-cyan);
 }
+
+/* ─── Modal scrollbar ─── */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: var(--color-gray-900);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--color-gray-700);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cyan);
+}
+
+/* ─── Tech badge micro-interaction ─── */
+.tech-badge {
+  transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+  background: rgba(0, 255, 255, 0.08);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 255, 255, 0.1);
+}
