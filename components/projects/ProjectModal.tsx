@@ -82,7 +82,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             aria-modal="true"
             aria-labelledby="modal-title"
             className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto
-              bg-gray-900 border border-gray-700 my-[5vh] mx-4
+              bg-gray-900 border border-gray-700 my-[3vh] sm:my-[5vh] mx-2 sm:mx-4
               scrollbar-thin"
             initial={{ scale: 0.92, y: 40, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
@@ -114,7 +114,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </button>
             </div>
 
-            <div className="p-6 sm:p-8 lg:p-10 space-y-10">
+            <div className="p-4 sm:p-8 lg:p-10 space-y-6 sm:space-y-10">
               {/* Title block */}
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
@@ -174,7 +174,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <div className="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-mono mb-3">
                   Architecture
                 </div>
-                <div className="border border-gray-700 bg-black/50 p-8 flex flex-col items-center justify-center min-h-[200px]">
+                <div className="border border-gray-700 bg-black/50 p-4 sm:p-8 flex flex-col items-center justify-center min-h-[160px] sm:min-h-[200px] overflow-x-auto">
                   <div className="text-xs text-gray-400 font-mono mb-4">
                     $ render architecture --project={project.id}
                   </div>

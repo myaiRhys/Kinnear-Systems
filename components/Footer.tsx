@@ -64,19 +64,19 @@ export default function Footer() {
 
   return (
     <footer ref={footerRef} className="border-t border-gray-700 bg-black">
-      <div className="px-6 py-8">
+      <div className="px-4 sm:px-6 py-8">
         {/* Grid layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-xs uppercase tracking-widest font-mono">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 text-xs uppercase tracking-widest font-mono">
           {/* Column 1 */}
           <div data-footer-col>
-            <h4 className="text-cyan mb-4">{"// Navigation"}</h4>
-            <ul className="space-y-2">
+            <h4 className="text-cyan mb-3 sm:mb-4">{"// Navigation"}</h4>
+            <ul className="space-y-0">
               {["About", "Work", "Services", "Contact"].map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
                     onClick={(e) => scrollToSection(e, `#${item.toLowerCase()}`)}
-                    className="text-gray-400 transition-colors duration-200 hover:text-white"
+                    className="block py-2 min-h-[44px] flex items-center text-gray-400 transition-colors duration-200 hover:text-white active:text-cyan"
                   >
                     &#8212; {item}
                   </a>
@@ -87,20 +87,20 @@ export default function Footer() {
 
           {/* Column 2 */}
           <div data-footer-col>
-            <h4 className="text-cyan mb-4">{"// Connect"}</h4>
-            <ul className="space-y-2 text-gray-400">
+            <h4 className="text-cyan mb-3 sm:mb-4">{"// Connect"}</h4>
+            <ul className="space-y-0 text-gray-400">
               <li>
-                <span className="text-gray-300 hover:text-white transition-colors cursor-pointer">
+                <span className="block py-2 min-h-[44px] flex items-center text-gray-300 hover:text-white active:text-cyan transition-colors cursor-pointer">
                   &#8212; GitHub
                 </span>
               </li>
               <li>
-                <span className="text-gray-300 hover:text-white transition-colors cursor-pointer">
+                <span className="block py-2 min-h-[44px] flex items-center text-gray-300 hover:text-white active:text-cyan transition-colors cursor-pointer">
                   &#8212; LinkedIn
                 </span>
               </li>
               <li>
-                <span className="text-gray-300 hover:text-white transition-colors cursor-pointer">
+                <span className="block py-2 min-h-[44px] flex items-center text-gray-300 hover:text-white active:text-cyan transition-colors cursor-pointer">
                   &#8212; Email
                 </span>
               </li>
@@ -109,7 +109,7 @@ export default function Footer() {
 
           {/* Column 3 */}
           <div data-footer-col>
-            <h4 className="text-cyan mb-4">{"// Status"}</h4>
+            <h4 className="text-cyan mb-3 sm:mb-4">{"// Status"}</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
                 <span className="text-cyan">&#9679;</span> All systems

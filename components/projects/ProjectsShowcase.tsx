@@ -62,10 +62,10 @@ export default function ProjectsShowcase() {
     <section
       ref={sectionRef}
       id="work"
-      className="border-t border-gray-700 px-6 sm:px-12 lg:px-24 py-24"
+      className="border-t border-gray-700 px-4 sm:px-12 lg:px-24 py-16 sm:py-24"
     >
       {/* Section header */}
-      <div ref={headerRef} className="mb-16 max-w-3xl">
+      <div ref={headerRef} className="mb-10 sm:mb-16 max-w-3xl">
         <div className="text-xs uppercase tracking-[0.3em] text-cyan mb-6 font-mono">
           {"// Projects"}
         </div>
