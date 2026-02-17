@@ -18,6 +18,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
       onClick={onClick}
       role="button"
       tabIndex={0}
+      aria-label={`View ${project.title} case study`}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();

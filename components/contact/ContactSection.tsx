@@ -202,7 +202,6 @@ export default function ContactSection() {
       } else {
         // Mock delay when Firebase isn't configured (dev mode)
         await new Promise((resolve) => setTimeout(resolve, 1200));
-        console.log("[ContactForm] Firebase not configured — mock submission:", data);
       }
 
       recordSubmission();
@@ -389,7 +388,11 @@ export default function ContactSection() {
 
                 {/* Error banner */}
                 {status === "error" && errorMessage && (
-                  <div className="flex items-start gap-2 px-3 py-2 border border-red-500/30 bg-red-500/5 text-xs font-mono">
+                  <div
+                    role="alert"
+                    aria-live="assertive"
+                    className="flex items-start gap-2 px-3 py-2 border border-red-500/30 bg-red-500/5 text-xs font-mono"
+                  >
                     <span className="text-red-400 shrink-0">ERR!</span>
                     <span className="text-red-300">{errorMessage}</span>
                   </div>
@@ -561,7 +564,7 @@ function SuccessPanel({
   onNewMessage: () => void;
 }) {
   return (
-    <div data-success-panel className="border border-green-500/30">
+    <div data-success-panel role="status" aria-live="polite" className="border border-green-500/30">
       {/* Title bar */}
       <div className="flex items-center gap-2 px-4 py-2.5 border-b border-green-500/20 bg-green-500/5">
         <div className="flex gap-1.5">

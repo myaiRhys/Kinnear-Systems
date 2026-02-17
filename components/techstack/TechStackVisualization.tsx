@@ -70,10 +70,16 @@ export default function TechStackVisualization() {
       setAnimationReady(true);
     }, 100);
 
-    const handleResize = () => calculateConnections();
+    // Debounced resize handler to avoid layout thrashing
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(calculateConnections, 150);
+    };
     window.addEventListener("resize", handleResize);
     return () => {
       clearTimeout(timeout);
+      clearTimeout(resizeTimer);
       window.removeEventListener("resize", handleResize);
     };
   }, [calculateConnections]);
