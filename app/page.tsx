@@ -1,10 +1,19 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import dynamic from "next/dynamic";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Hero from "@/components/hero/Hero";
+import { useLenis } from "@/components/SmoothScroll";
+import ConsoleGreeting from "@/components/ConsoleGreeting";
+
+const KonamiTerminal = dynamic(() => import("@/components/KonamiTerminal"), {
+  ssr: false,
+});
+const CustomCursor = dynamic(() => import("@/components/CustomCursor"), {
+  ssr: false,
+});
 
 // Dynamic imports — code-split below-fold heavy components
 const ServicesSection = dynamic(
@@ -29,6 +38,19 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
   const statsRef = useRef<HTMLElement>(null);
   const aboutRef = useRef<HTMLElement>(null);
+  const lenis = useLenis();
+
+  const handleNavigate = useCallback(
+    (href: string) => {
+      if (lenis) {
+        lenis.scrollTo(href, { offset: -60, duration: 1.4 });
+      } else {
+        const el = document.querySelector(href);
+        el?.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+    [lenis]
+  );
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -134,6 +156,11 @@ export default function Home() {
 
   return (
     <div>
+      {/* ─── Easter Eggs ─── */}
+      <ConsoleGreeting />
+      <KonamiTerminal onNavigate={handleNavigate} />
+      <CustomCursor />
+
       {/* ─── Hero Section ─── */}
       <Hero />
 

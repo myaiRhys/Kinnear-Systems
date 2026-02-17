@@ -165,7 +165,19 @@ export default function Hero() {
             ref={terminalRef}
             className="text-xs sm:text-base font-mono mb-4 sm:mb-6"
           >
-            <TerminalTyping text="KINNEAR SYSTEMS" speed={70} startDelay={800} />
+            <TerminalTyping
+              text={[
+                "KINNEAR SYSTEMS",
+                "SOFTWARE THAT WORKS",
+                "BUILT IN CAPE TOWN",
+                "SYSTEMS > WEBSITES",
+                "500+ HOURS SAVED/YEAR",
+              ]}
+              speed={70}
+              startDelay={800}
+              holdDuration={3000}
+              eraseSpeed={25}
+            />
           </div>
 
           {/* Main headline */}
