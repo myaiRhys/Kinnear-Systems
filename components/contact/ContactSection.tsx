@@ -107,6 +107,7 @@ export default function ContactSection() {
           duration: 0.8,
           stagger: 0.15,
           ease: "power3.out",
+          immediateRender: false,
           scrollTrigger: {
             trigger: headerRef.current,
             start: "top 85%",
@@ -121,6 +122,7 @@ export default function ContactSection() {
           opacity: 0,
           duration: 0.9,
           ease: "power3.out",
+          immediateRender: false,
           scrollTrigger: {
             trigger: formContainerRef.current,
             start: "top 80%",
@@ -135,6 +137,7 @@ export default function ContactSection() {
           opacity: 0,
           duration: 0.9,
           ease: "power3.out",
+          immediateRender: false,
           scrollTrigger: {
             trigger: sidebarRef.current,
             start: "top 80%",

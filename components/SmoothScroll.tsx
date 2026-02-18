@@ -35,15 +35,26 @@ export default function SmoothScroll({
     instance.on("scroll", ScrollTrigger.update);
 
     // Drive Lenis from GSAP ticker for frame-perfect sync
-    gsap.ticker.add((time) => {
+    const tickerCallback = (time: number) => {
       instance.raf(time * 1000);
-    });
+    };
+    gsap.ticker.add(tickerCallback);
     gsap.ticker.lagSmoothing(0);
+
+    // Native scroll fallback for mobile touch devices where Lenis
+    // may not properly relay scroll events to ScrollTrigger
+    const handleNativeScroll = () => ScrollTrigger.update();
+    window.addEventListener("scroll", handleNativeScroll, { passive: true });
+
+    // Refresh ScrollTrigger after Lenis is ready so trigger
+    // positions are calculated correctly
+    ScrollTrigger.refresh();
 
     setLenis(instance);
 
     return () => {
-      gsap.ticker.remove(instance.raf as Parameters<typeof gsap.ticker.remove>[0]);
+      window.removeEventListener("scroll", handleNativeScroll);
+      gsap.ticker.remove(tickerCallback);
       instance.destroy();
     };
   }, []);

@@ -127,7 +127,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen min-h-[600px] sm:min-h-[700px] flex flex-col justify-center overflow-hidden"
+      className="relative h-screen min-h-[600px] sm:min-h-[700px] flex flex-col justify-center overflow-hidden supports-[height:100dvh]:h-[100dvh]"
     >
       {/* Three.js background */}
       <ThreeScene />

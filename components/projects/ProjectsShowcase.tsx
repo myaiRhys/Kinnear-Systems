@@ -33,6 +33,7 @@ export default function ProjectsShowcase() {
         duration: 0.8,
         stagger: 0.15,
         ease: "power3.out",
+        immediateRender: false,
         scrollTrigger: {
           trigger: header,
           start: "top 85%",
@@ -47,6 +48,7 @@ export default function ProjectsShowcase() {
         duration: 0.9,
         stagger: 0.2,
         ease: "power3.out",
+        immediateRender: false,
         scrollTrigger: {
           trigger: grid,
           start: "top 80%",

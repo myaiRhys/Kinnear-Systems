@@ -72,6 +72,7 @@ export default function ServicesSection() {
         duration: 0.8,
         stagger: 0.15,
         ease: "power3.out",
+        immediateRender: false,
         scrollTrigger: {
           trigger: header,
           start: "top 85%",
@@ -85,6 +86,7 @@ export default function ServicesSection() {
         opacity: 0,
         duration: 1,
         ease: "power3.out",
+        immediateRender: false,
         scrollTrigger: {
           trigger: section,
           start: "top 70%",
@@ -98,6 +100,7 @@ export default function ServicesSection() {
         opacity: 0,
         duration: 1,
         ease: "power3.out",
+        immediateRender: false,
         scrollTrigger: {
           trigger: section,
           start: "top 70%",

@@ -63,6 +63,7 @@ export default function Home() {
           duration: 0.7,
           stagger: 0.12,
           ease: "power3.out",
+          immediateRender: false,
           scrollTrigger: {
             trigger: statsRef.current,
             start: "top 80%",
@@ -78,6 +79,7 @@ export default function Home() {
             textContent: 0,
             duration: 0,
             snap: { textContent: 1 },
+            immediateRender: false,
             scrollTrigger: {
               trigger: card,
               start: "top 85%",
@@ -90,6 +92,7 @@ export default function Home() {
             opacity: 0,
             duration: 0.6,
             ease: "back.out(1.4)",
+            immediateRender: false,
             scrollTrigger: {
               trigger: card,
               start: "top 85%",
@@ -110,6 +113,7 @@ export default function Home() {
             opacity: 0,
             duration: 0.9,
             ease: "power3.out",
+            immediateRender: false,
             scrollTrigger: {
               trigger: aboutRef.current,
               start: "top 75%",
@@ -123,6 +127,7 @@ export default function Home() {
             opacity: 0,
             duration: 0.9,
             ease: "power3.out",
+            immediateRender: false,
             delay: 0.15,
             scrollTrigger: {
               trigger: aboutRef.current,
@@ -141,6 +146,7 @@ export default function Home() {
             duration: 0.4,
             stagger: 0.08,
             ease: "power3.out",
+            immediateRender: false,
             scrollTrigger: {
               trigger: aboutRight,
               start: "top 80%",
