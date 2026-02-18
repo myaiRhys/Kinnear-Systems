@@ -211,7 +211,7 @@ export default function Hero() {
           <div ref={ctaRef} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a
               href="#work"
-              className="group inline-flex items-center justify-center border border-cyan text-cyan px-6 sm:px-8 py-3 sm:py-3.5 min-h-[48px] text-xs uppercase tracking-[0.2em] font-mono transition-all duration-300 hover:bg-cyan hover:text-black active:bg-cyan active:text-black"
+              className="group inline-flex items-center justify-center bg-cyan text-black border border-cyan px-6 sm:px-8 py-3 sm:py-3.5 min-h-[48px] text-xs uppercase tracking-[0.2em] font-mono font-bold transition-all duration-300 hover:bg-transparent hover:text-cyan active:bg-cyan/80 active:text-black shadow-[0_0_20px_rgba(0,255,255,0.2)]"
             >
               <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
                 &rarr;
@@ -220,7 +220,7 @@ export default function Hero() {
             </a>
             <a
               href="#contact"
-              className="group inline-flex items-center justify-center border border-gray-700 text-gray-300 px-6 sm:px-8 py-3 sm:py-3.5 min-h-[48px] text-xs uppercase tracking-[0.2em] font-mono transition-all duration-300 hover:border-cyan hover:text-cyan active:border-cyan active:text-cyan"
+              className="group inline-flex items-center justify-center border border-gray-400 text-gray-100 px-6 sm:px-8 py-3 sm:py-3.5 min-h-[48px] text-xs uppercase tracking-[0.2em] font-mono transition-all duration-300 hover:border-cyan hover:text-cyan active:border-cyan active:bg-cyan/10 active:text-cyan"
             >
               <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
                 &rarr;

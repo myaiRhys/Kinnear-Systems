@@ -78,9 +78,8 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
           </div>
         </div>
 
-        {/* Tech badges - revealed on hover */}
-        <div className="flex flex-wrap gap-2 opacity-0 translate-y-2 transition-all duration-500
-          group-hover:opacity-100 group-hover:translate-y-0">
+        {/* Tech badges - always visible */}
+        <div className="flex flex-wrap gap-2">
           {project.tech.map((tech) => (
             <span
               key={tech}
@@ -98,24 +97,24 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
       {/* Bottom action bar */}
       <div className="border-t border-gray-700 px-5 py-3 flex items-center justify-between
         group-hover:border-cyan/30 transition-colors duration-500">
-        <span className="text-[10px] uppercase tracking-[0.2em] text-gray-700 font-mono
-          group-hover:text-gray-400 transition-colors duration-300">
-          View Case Study
+        <span className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-mono
+          group-hover:text-cyan transition-colors duration-300">
+          Tap to explore
         </span>
-        <span className="text-gray-700 text-sm transition-all duration-300
-          group-hover:text-cyan group-hover:translate-x-1 transform">
+        <span className="text-cyan tap-indicator text-sm transition-all duration-300
+          group-hover:translate-x-1 transform md:text-gray-700 md:group-hover:text-cyan">
           &rarr;
         </span>
       </div>
 
-      {/* Corner accents */}
-      <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-transparent
+      {/* Corner accents — visible on mobile, enhanced on hover */}
+      <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-cyan/30
         group-hover:border-cyan transition-colors duration-500" />
-      <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-transparent
+      <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-cyan/30
         group-hover:border-cyan transition-colors duration-500" />
-      <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-transparent
+      <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-cyan/30
         group-hover:border-cyan transition-colors duration-500" />
-      <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-transparent
+      <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-cyan/30
         group-hover:border-cyan transition-colors duration-500" />
     </div>
   );
