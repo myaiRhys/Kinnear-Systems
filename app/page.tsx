@@ -173,7 +173,7 @@ export default function Home() {
       {/* ─── Stats Section ─── */}
       <section
         ref={statsRef}
-        className="border-t border-gray-700 px-4 sm:px-12 lg:px-24 py-12 sm:py-16"
+        className="section-alt border-t border-gray-700 px-4 sm:px-12 lg:px-24 py-12 sm:py-16"
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-8">
           {[
@@ -217,9 +217,12 @@ export default function Home() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-6xl">
           <div data-about-left>
-            <h2 className="text-xs uppercase tracking-[0.3em] text-cyan mb-6 font-mono">
-              {"// About"}
-            </h2>
+            <div className="border-l-2 border-cyan/40 pl-4 sm:pl-6 mb-6">
+              <div className="text-xs uppercase tracking-[0.3em] text-cyan font-mono flex items-center gap-3">
+                <span className="text-cyan/20 text-2xl font-bold tabular-nums">05</span>
+                {"// About"}
+              </div>
+            </div>
             <p className="text-gray-300 text-sm leading-relaxed font-mono">
               We architect and build robust digital systems with a focus on
               performance, reliability, and clean design. Every project is

@@ -149,6 +149,28 @@ a {
   box-shadow: 0 2px 8px rgba(0, 255, 255, 0.1);
 }
 
+/* ─── Alternating section background ─── */
+.section-alt {
+  background-color: #060608;
+}
+
+/* ─── Mobile tap pulse indicator ─── */
+@keyframes tap-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.tap-indicator {
+  animation: tap-pulse 2s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .tap-indicator {
+    animation: none;
+    opacity: 0;
+  }
+}
+
 /* ─── Tech stack data stream animation ─── */
 @keyframes data-stream {
   0% { stroke-dashoffset: 24; }

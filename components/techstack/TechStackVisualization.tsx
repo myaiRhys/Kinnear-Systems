@@ -222,8 +222,9 @@ export default function TechStackVisualization() {
       className="border-t border-gray-700 px-4 sm:px-12 lg:px-24 py-16 sm:py-24 relative"
     >
       {/* ─── Section Header ─── */}
-      <div ref={headerRef} className="mb-10 sm:mb-16 max-w-3xl">
-        <div className="text-xs uppercase tracking-[0.3em] text-cyan mb-6 font-mono">
+      <div ref={headerRef} className="mb-10 sm:mb-16 max-w-3xl border-l-2 border-cyan/40 pl-4 sm:pl-6">
+        <div className="text-xs uppercase tracking-[0.3em] text-cyan mb-6 font-mono flex items-center gap-3">
+          <span className="text-cyan/20 text-2xl font-bold tabular-nums">03</span>
           {"// Tech Stack"}
         </div>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-mono tracking-tight mb-4">
@@ -231,7 +232,9 @@ export default function TechStackVisualization() {
         </h2>
         <p className="text-sm text-gray-400 font-mono leading-relaxed">
           <span className="text-gray-300">&gt;</span> The tools and frameworks
-          powering every build. Click any node to inspect.
+          powering every build.{" "}
+          <span className="hidden md:inline">Click</span>
+          <span className="md:hidden">Tap</span> any node to inspect.
         </p>
       </div>
 
@@ -374,7 +377,7 @@ const TechNodeCard = forwardRef<HTMLDivElement, TechNodeCardProps>(
         onMouseLeave={onHoverEnd}
         onTouchStart={onHoverStart}
         onClick={onClick}
-        className="relative group cursor-pointer"
+        className="relative group cursor-pointer active:scale-95 transition-transform duration-150"
       >
         {/* Terminal window node */}
         <div
@@ -390,7 +393,7 @@ const TechNodeCard = forwardRef<HTMLDivElement, TechNodeCardProps>(
                     ? "border-cyan/50 bg-gray-900/60"
                     : isDimmed
                       ? "border-gray-700/50 bg-transparent opacity-40"
-                      : "border-gray-700 bg-transparent"
+                      : "border-gray-700 bg-transparent hover:border-gray-400"
             }
           `}
         >

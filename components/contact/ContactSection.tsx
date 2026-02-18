@@ -233,11 +233,12 @@ export default function ContactSection() {
     <section
       ref={sectionRef}
       id="contact"
-      className="border-t border-gray-700 px-4 sm:px-12 lg:px-24 py-16 sm:py-24"
+      className="section-alt border-t border-gray-700 px-4 sm:px-12 lg:px-24 py-16 sm:py-24"
     >
       {/* ─── Section Header ─── */}
-      <div ref={headerRef} className="mb-10 sm:mb-16 max-w-3xl">
-        <div className="text-xs uppercase tracking-[0.3em] text-cyan mb-6 font-mono">
+      <div ref={headerRef} className="mb-10 sm:mb-16 max-w-3xl border-l-2 border-cyan/40 pl-4 sm:pl-6">
+        <div className="text-xs uppercase tracking-[0.3em] text-cyan mb-6 font-mono flex items-center gap-3">
+          <span className="text-cyan/20 text-2xl font-bold tabular-nums">04</span>
           {"// Contact"}
         </div>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-mono tracking-tight mb-4">
