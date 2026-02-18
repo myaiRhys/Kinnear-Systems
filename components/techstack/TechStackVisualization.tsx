@@ -64,11 +64,14 @@ export default function TechStackVisualization() {
 
   /* ─── Recalculate paths on resize / layout shift ─── */
   useEffect(() => {
-    // Small delay for layout to stabilize
+    // Longer delay for layout to stabilize on mobile (GSAP animations, fonts, etc.)
     const timeout = setTimeout(() => {
       calculateConnections();
       setAnimationReady(true);
-    }, 100);
+    }, 300);
+
+    // Second recalculation after GSAP entrance animations complete
+    const animTimeout = setTimeout(calculateConnections, 1500);
 
     // Debounced resize handler to avoid layout thrashing
     let resizeTimer: ReturnType<typeof setTimeout>;
@@ -77,10 +80,19 @@ export default function TechStackVisualization() {
       resizeTimer = setTimeout(calculateConnections, 150);
     };
     window.addEventListener("resize", handleResize);
+
+    // Recalculate on orientation change (mobile)
+    const handleOrientationChange = () => {
+      setTimeout(calculateConnections, 300);
+    };
+    window.addEventListener("orientationchange", handleOrientationChange);
+
     return () => {
       clearTimeout(timeout);
+      clearTimeout(animTimeout);
       clearTimeout(resizeTimer);
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("orientationchange", handleOrientationChange);
     };
   }, [calculateConnections]);
 
@@ -98,6 +110,7 @@ export default function TechStackVisualization() {
           duration: 0.8,
           stagger: 0.15,
           ease: "power3.out",
+          immediateRender: false,
           scrollTrigger: {
             trigger: headerRef.current,
             start: "top 85%",
@@ -114,6 +127,7 @@ export default function TechStackVisualization() {
         duration: 0.6,
         stagger: 0.12,
         ease: "power3.out",
+        immediateRender: false,
         scrollTrigger: {
           trigger: graphRef.current,
           start: "top 80%",
@@ -133,12 +147,14 @@ export default function TechStackVisualization() {
           duration: 0.7,
           stagger: 0.1,
           ease: "power3.out",
+          immediateRender: false,
           delay: layerIndex * 0.15,
           scrollTrigger: {
             trigger: graphRef.current,
             start: "top 80%",
             toggleActions: "play none none none",
           },
+          onComplete: calculateConnections,
         });
       });
 
@@ -356,6 +372,7 @@ const TechNodeCard = forwardRef<HTMLDivElement, TechNodeCardProps>(
         data-layer={node.layer}
         onMouseEnter={onHoverStart}
         onMouseLeave={onHoverEnd}
+        onTouchStart={onHoverStart}
         onClick={onClick}
         className="relative group cursor-pointer"
       >
